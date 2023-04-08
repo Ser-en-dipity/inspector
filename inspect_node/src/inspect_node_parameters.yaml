@@ -1,0 +1,13 @@
+inspect_node:
+  air_gauge_spec_names:
+    {
+      type: string_array,
+      default_value: ["5_a", "5_b"],
+      description: "names of specs joints",
+    }
+  air_gauge_spec_reader_devices:
+    {
+      type: string_array,
+      default_value: ["/dev/ttyUSB2", "/dev/ttyUSB3"],
+      description: "names of specs reader dev",
+    }

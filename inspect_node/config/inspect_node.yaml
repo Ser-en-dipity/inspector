@@ -1,0 +1,4 @@
+gpio:
+  ros__parameters:
+    dev: "/dev/ttyUSB1"
+    auto_run: true
