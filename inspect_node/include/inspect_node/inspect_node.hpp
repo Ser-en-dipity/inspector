@@ -2,10 +2,10 @@
 #define INSPECT_NODE__INSPECT_NODE_HPP_
 
 #include "air_gauge/air_gauge_reader.hpp"
+#include "ins_msgs/msg/product.hpp"
 #include "inspect_node/product.hpp"
 #include "inspect_node/visibility_control.h"
 #include "inspect_node_parameters.hpp"
-#include "ins_msgs/msg/product.hpp"
 #include <atomic>
 #include <memory>
 #include <mutex>
@@ -58,7 +58,7 @@ public:
     TIME_OUT,
     WAIT_FOR_CB,
   };
-  
+
   [[nodiscard]] auto get_air_gauge_results() const
       -> const std::unordered_map<std::string, double> & {
     return air_gauge_results_;
@@ -68,15 +68,15 @@ private:
   Params params_;
   std::shared_ptr<ParamListener> param_listener_;
   using AirGaugeReaderPtr = std::unique_ptr<air_gauge::AirGaugeReader>;
-  
+
   std::unordered_map<std::string, AirGaugeReaderPtr> air_gauge_readers_;
   std::unordered_map<std::string, double> air_gauge_results_;
-  };
 
-  void timer_callback() ;
+  void timer_callback_();
   rclcpp::TimerBase::SharedPtr timer_;
   rclcpp::Publisher<ins_msgs::msg::Product>::SharedPtr publisher_;
   size_t count_;
+};
 
 } // namespace inspect_node
 

@@ -1,0 +1,4 @@
+source;share/inspect_node/local_setup.bash
+source;share/inspect_node/local_setup.dsv
+source;share/inspect_node/local_setup.sh
+source;share/inspect_node/local_setup.zsh
