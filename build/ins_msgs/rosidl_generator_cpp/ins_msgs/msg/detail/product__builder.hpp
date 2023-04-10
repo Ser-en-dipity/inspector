@@ -21,16 +21,48 @@ namespace msg
 namespace builder
 {
 
+class Init_Product_spec_value
+{
+public:
+  explicit Init_Product_spec_value(::ins_msgs::msg::Product & msg)
+  : msg_(msg)
+  {}
+  ::ins_msgs::msg::Product spec_value(::ins_msgs::msg::Product::_spec_value_type arg)
+  {
+    msg_.spec_value = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::ins_msgs::msg::Product msg_;
+};
+
+class Init_Product_timestamp
+{
+public:
+  explicit Init_Product_timestamp(::ins_msgs::msg::Product & msg)
+  : msg_(msg)
+  {}
+  Init_Product_spec_value timestamp(::ins_msgs::msg::Product::_timestamp_type arg)
+  {
+    msg_.timestamp = std::move(arg);
+    return Init_Product_spec_value(msg_);
+  }
+
+private:
+  ::ins_msgs::msg::Product msg_;
+};
+
 class Init_Product_desp
 {
 public:
   explicit Init_Product_desp(::ins_msgs::msg::Product & msg)
   : msg_(msg)
   {}
-  ::ins_msgs::msg::Product desp(::ins_msgs::msg::Product::_desp_type arg)
+  Init_Product_timestamp desp(::ins_msgs::msg::Product::_desp_type arg)
   {
     msg_.desp = std::move(arg);
-    return std::move(msg_);
+    return Init_Product_timestamp(msg_);
   }
 
 private:

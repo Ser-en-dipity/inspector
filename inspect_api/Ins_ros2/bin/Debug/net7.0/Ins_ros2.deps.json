@@ -1,0 +1,78 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Ins_ros2/1.0.0": {
+        "dependencies": {
+          "Rcl.NET": "1.1.2"
+        },
+        "runtime": {
+          "Ins_ros2.dll": {}
+        }
+      },
+      "Microsoft.Toolkit.HighPerformance/7.1.2": {
+        "runtime": {
+          "lib/net5.0/Microsoft.Toolkit.HighPerformance.dll": {
+            "assemblyVersion": "7.1.0.0",
+            "fileVersion": "7.1.2.1"
+          }
+        }
+      },
+      "Rcl.NET/1.1.2": {
+        "dependencies": {
+          "Microsoft.Toolkit.HighPerformance": "7.1.2",
+          "Rosidl.Runtime": "1.1.2"
+        },
+        "runtime": {
+          "lib/net7.0/Rcl.NET.dll": {
+            "assemblyVersion": "1.1.2.0",
+            "fileVersion": "1.1.2.0"
+          }
+        }
+      },
+      "Rosidl.Runtime/1.1.2": {
+        "dependencies": {
+          "Microsoft.Toolkit.HighPerformance": "7.1.2"
+        },
+        "runtime": {
+          "lib/net7.0/Rosidl.Runtime.dll": {
+            "assemblyVersion": "1.1.2.0",
+            "fileVersion": "1.1.2.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ins_ros2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Toolkit.HighPerformance/7.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cezzRky0BUJyYmSrcQUcX8qAv90JfUwCqWEbqfWZLHyeANo9/LWgW6y50pqbyc8r8SPXVsu2GNH98fB3VxrnvA==",
+      "path": "microsoft.toolkit.highperformance/7.1.2",
+      "hashPath": "microsoft.toolkit.highperformance.7.1.2.nupkg.sha512"
+    },
+    "Rcl.NET/1.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kS/GH7oicPL/jYOhi24VB3ntvoee9NisG3n1NmsfOdVIft+nSBnTPtLLqTvZFXuHqGDMjCw1YQ8Go5F2ewftPw==",
+      "path": "rcl.net/1.1.2",
+      "hashPath": "rcl.net.1.1.2.nupkg.sha512"
+    },
+    "Rosidl.Runtime/1.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-o/xYIRnXyLr78zYmBxeYTzlLZhtUmaUCuuKWNtKJ/OH0GnOd/6tm9MGburX3E+PWbiiJVTu1PS+1ouXQszw3CA==",
+      "path": "rosidl.runtime/1.1.2",
+      "hashPath": "rosidl.runtime.1.1.2.nupkg.sha512"
+    }
+  }
+}

@@ -1,20 +1,35 @@
+using Microsoft.EntityFrameworkCore;
+using Shaft.Infra.Ros2;
+using Shaft.Infra.Db;
+using Shaft.Infra.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+builder.Services.AddMemoryCache();
+builder.Services.AddSingleton<Ros2Context>();
+builder.Services.AddHostedService<LaunchAtStart>();
+builder.Services.AddDbContext<ShaftDbContext>(options =>
+{
+    options.UseSqlite("Data Source=ins.db")
+        .UseSnakeCaseNamingConvention();
+});
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var ctx = scope.ServiceProvider.GetRequiredService<ShaftDbContext>();
+    ctx.Database.EnsureCreated();
 }
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

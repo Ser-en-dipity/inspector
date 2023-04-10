@@ -1,0 +1,12 @@
+/home/king/project/inspect_api/Ins_ros2/obj/Debug/net7.0/Ins_ros2.csproj.AssemblyReference.cache
+/home/king/project/inspect_api/Ins_ros2/obj/Debug/net7.0/Ins_ros2.GeneratedMSBuildEditorConfig.editorconfig
+/home/king/project/inspect_api/Ins_ros2/obj/Debug/net7.0/Ins_ros2.AssemblyInfoInputs.cache
+/home/king/project/inspect_api/Ins_ros2/obj/Debug/net7.0/Ins_ros2.AssemblyInfo.cs
+/home/king/project/inspect_api/Ins_ros2/obj/Debug/net7.0/Ins_ros2.csproj.CoreCompileInputs.cache
+/home/king/project/inspect_api/Ins_ros2/bin/Debug/net7.0/Ins_ros2.deps.json
+/home/king/project/inspect_api/Ins_ros2/bin/Debug/net7.0/Ins_ros2.dll
+/home/king/project/inspect_api/Ins_ros2/bin/Debug/net7.0/Ins_ros2.pdb
+/home/king/project/inspect_api/Ins_ros2/obj/Debug/net7.0/Ins_ros2.dll
+/home/king/project/inspect_api/Ins_ros2/obj/Debug/net7.0/refint/Ins_ros2.dll
+/home/king/project/inspect_api/Ins_ros2/obj/Debug/net7.0/Ins_ros2.pdb
+/home/king/project/inspect_api/Ins_ros2/obj/Debug/net7.0/ref/Ins_ros2.dll

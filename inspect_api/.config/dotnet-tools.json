@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "ros2cs": {
+      "version": "1.1.2",
+      "commands": [
+        "ros2cs"
+      ]
+    },
+    "dotnet-ef": {
+      "version": "7.0.4",
+      "commands": [
+        "dotnet-ef"
+      ]
+    }
+  }
+}

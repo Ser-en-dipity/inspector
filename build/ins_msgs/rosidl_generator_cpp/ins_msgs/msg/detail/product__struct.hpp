@@ -41,6 +41,7 @@ struct Product_
       this->client_id = 0ll;
       this->name = "";
       this->desp = "";
+      this->timestamp = 0ll;
     }
   }
 
@@ -54,6 +55,7 @@ struct Product_
       this->client_id = 0ll;
       this->name = "";
       this->desp = "";
+      this->timestamp = 0ll;
     }
   }
 
@@ -67,6 +69,12 @@ struct Product_
   using _desp_type =
     std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
   _desp_type desp;
+  using _timestamp_type =
+    int64_t;
+  _timestamp_type timestamp;
+  using _spec_value_type =
+    std::vector<double, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<double>>;
+  _spec_value_type spec_value;
 
   // setters for named parameter idiom
   Type & set__client_id(
@@ -85,6 +93,18 @@ struct Product_
     const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
   {
     this->desp = _arg;
+    return *this;
+  }
+  Type & set__timestamp(
+    const int64_t & _arg)
+  {
+    this->timestamp = _arg;
+    return *this;
+  }
+  Type & set__spec_value(
+    const std::vector<double, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<double>> & _arg)
+  {
+    this->spec_value = _arg;
     return *this;
   }
 
@@ -137,6 +157,12 @@ struct Product_
       return false;
     }
     if (this->desp != other.desp) {
+      return false;
+    }
+    if (this->timestamp != other.timestamp) {
+      return false;
+    }
+    if (this->spec_value != other.spec_value) {
       return false;
     }
     return true;

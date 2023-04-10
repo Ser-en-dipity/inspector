@@ -1,0 +1,17 @@
+/home/king/project/inspect_api/Ins.Infra/obj/Debug/net7.0/Ins.Infra.csproj.AssemblyReference.cache
+/home/king/project/inspect_api/Ins.Infra/obj/Debug/net7.0/Ins.Infra.GeneratedMSBuildEditorConfig.editorconfig
+/home/king/project/inspect_api/Ins.Infra/obj/Debug/net7.0/Ins.Infra.AssemblyInfoInputs.cache
+/home/king/project/inspect_api/Ins.Infra/obj/Debug/net7.0/Ins.Infra.AssemblyInfo.cs
+/home/king/project/inspect_api/Ins.Infra/obj/Debug/net7.0/Ins.Infra.csproj.CoreCompileInputs.cache
+/home/king/project/inspect_api/Ins.Infra/bin/Debug/net7.0/Ins.Infra.deps.json
+/home/king/project/inspect_api/Ins.Infra/bin/Debug/net7.0/Ins.Infra.runtimeconfig.json
+/home/king/project/inspect_api/Ins.Infra/bin/Debug/net7.0/Ins.Infra.dll
+/home/king/project/inspect_api/Ins.Infra/bin/Debug/net7.0/Ins.Infra.pdb
+/home/king/project/inspect_api/Ins.Infra/bin/Debug/net7.0/Ins_ros2.dll
+/home/king/project/inspect_api/Ins.Infra/bin/Debug/net7.0/Ins_ros2.pdb
+/home/king/project/inspect_api/Ins.Infra/obj/Debug/net7.0/Ins.Infra.csproj.CopyComplete
+/home/king/project/inspect_api/Ins.Infra/obj/Debug/net7.0/Ins.Infra.dll
+/home/king/project/inspect_api/Ins.Infra/obj/Debug/net7.0/refint/Ins.Infra.dll
+/home/king/project/inspect_api/Ins.Infra/obj/Debug/net7.0/Ins.Infra.pdb
+/home/king/project/inspect_api/Ins.Infra/obj/Debug/net7.0/Ins.Infra.genruntimeconfig.cache
+/home/king/project/inspect_api/Ins.Infra/obj/Debug/net7.0/ref/Ins.Infra.dll

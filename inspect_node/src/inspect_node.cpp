@@ -64,9 +64,6 @@ auto InspectNode::on_configure(const rclcpp_lifecycle::State &previous_state)
   air_gauge_readers_.reserve(air_gauge_spec_size);
   air_gauge_results_.reserve(air_gauge_spec_size);
 
-  publisher_ = this->create_publisher<ins_msgs::msg::Product>("topic", 10);
-  timer_ = this->create_wall_timer(1s, [this] { timer_callback_(); });
-
   for (uint idx = 0; idx < air_gauge_spec_size; idx++) {
     let spec_name = params_.air_gauge_spec_names[idx];
     let dev_name = params_.air_gauge_spec_reader_devices[idx];
@@ -80,17 +77,19 @@ auto InspectNode::on_configure(const rclcpp_lifecycle::State &previous_state)
     air_gauge_results_.emplace(spec_name, 0.0);
   }
 
+  publisher_ = this->create_publisher<ins_msgs::msg::Product>("topic", 10);
+  timer_ = this->create_wall_timer(1s, [this] { timer_callback_(); });
   return CallbackReturn::SUCCESS;
 }
 
 void InspectNode::timer_callback_() {
-
-  std::cout << "---------timer callback!-----------" << std::endl;
   // publish msg
   auto message = ins_msgs::msg::Product();
   message.client_id = 0;
   message.name = "test";
   publisher_->publish(message);
+  RCLCPP_INFO_STREAM(this->get_logger(),
+                     "Publishing: '" << message.name << "'");
 }
 
 auto InspectNode::on_activate(const rclcpp_lifecycle::State &previous_state)

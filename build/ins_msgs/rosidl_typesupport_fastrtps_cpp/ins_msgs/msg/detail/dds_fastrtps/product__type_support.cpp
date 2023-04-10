@@ -38,6 +38,12 @@ cdr_serialize(
   cdr << ros_message.name;
   // Member: desp
   cdr << ros_message.desp;
+  // Member: timestamp
+  cdr << ros_message.timestamp;
+  // Member: spec_value
+  {
+    cdr << ros_message.spec_value;
+  }
   return true;
 }
 
@@ -55,6 +61,14 @@ cdr_deserialize(
 
   // Member: desp
   cdr >> ros_message.desp;
+
+  // Member: timestamp
+  cdr >> ros_message.timestamp;
+
+  // Member: spec_value
+  {
+    cdr >> ros_message.spec_value;
+  }
 
   return true;
 }
@@ -86,6 +100,22 @@ get_serialized_size(
   current_alignment += padding +
     eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
     (ros_message.desp.size() + 1);
+  // Member: timestamp
+  {
+    size_t item_size = sizeof(ros_message.timestamp);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: spec_value
+  {
+    size_t array_size = ros_message.spec_value.size();
+
+    current_alignment += padding +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
+    size_t item_size = sizeof(ros_message.spec_value[0]);
+    current_alignment += array_size * item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
 
   return current_alignment - initial_alignment;
 }
@@ -141,6 +171,26 @@ max_serialized_size_Product(
         eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
         1;
     }
+  }
+
+  // Member: timestamp
+  {
+    size_t array_size = 1;
+
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+
+  // Member: spec_value
+  {
+    size_t array_size = 0;
+    full_bounded = false;
+    is_plain = false;
+    current_alignment += padding +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
+
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
 
   return current_alignment - initial_alignment;

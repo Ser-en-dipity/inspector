@@ -34,6 +34,8 @@ extern "C"
 {
 #endif
 
+#include "rosidl_runtime_c/primitives_sequence.h"  // spec_value
+#include "rosidl_runtime_c/primitives_sequence_functions.h"  // spec_value
 #include "rosidl_runtime_c/string.h"  // desp, name
 #include "rosidl_runtime_c/string_functions.h"  // desp, name
 
@@ -82,6 +84,19 @@ static bool _Product__cdr_serialize(
       return false;
     }
     cdr << str->data;
+  }
+
+  // Field name: timestamp
+  {
+    cdr << ros_message->timestamp;
+  }
+
+  // Field name: spec_value
+  {
+    size_t size = ros_message->spec_value.size;
+    auto array_ptr = ros_message->spec_value.data;
+    cdr << static_cast<uint32_t>(size);
+    cdr.serializeArray(array_ptr, size);
   }
 
   return true;
@@ -133,6 +148,27 @@ static bool _Product__cdr_deserialize(
     }
   }
 
+  // Field name: timestamp
+  {
+    cdr >> ros_message->timestamp;
+  }
+
+  // Field name: spec_value
+  {
+    uint32_t cdrSize;
+    cdr >> cdrSize;
+    size_t size = static_cast<size_t>(cdrSize);
+    if (ros_message->spec_value.data) {
+      rosidl_runtime_c__double__Sequence__fini(&ros_message->spec_value);
+    }
+    if (!rosidl_runtime_c__double__Sequence__init(&ros_message->spec_value, size)) {
+      fprintf(stderr, "failed to create array for field 'spec_value'");
+      return false;
+    }
+    auto array_ptr = ros_message->spec_value.data;
+    cdr.deserializeArray(array_ptr, size);
+  }
+
   return true;
 }  // NOLINT(readability/fn_size)
 
@@ -164,6 +200,23 @@ size_t get_serialized_size_ins_msgs__msg__Product(
   current_alignment += padding +
     eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
     (ros_message->desp.size + 1);
+  // field.name timestamp
+  {
+    size_t item_size = sizeof(ros_message->timestamp);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // field.name spec_value
+  {
+    size_t array_size = ros_message->spec_value.size;
+    auto array_ptr = ros_message->spec_value.data;
+    current_alignment += padding +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
+    (void)array_ptr;
+    size_t item_size = sizeof(array_ptr[0]);
+    current_alignment += array_size * item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
 
   return current_alignment - initial_alignment;
 }
@@ -222,6 +275,24 @@ size_t max_serialized_size_ins_msgs__msg__Product(
         eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
         1;
     }
+  }
+  // member: timestamp
+  {
+    size_t array_size = 1;
+
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
+  }
+  // member: spec_value
+  {
+    size_t array_size = 0;
+    full_bounded = false;
+    is_plain = false;
+    current_alignment += padding +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, padding);
+
+    current_alignment += array_size * sizeof(uint64_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
 
   return current_alignment - initial_alignment;

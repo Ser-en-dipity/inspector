@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/king/project/inspect_api/Ins_ros2/Ins_ros2.csproj": {}
+  },
+  "projects": {
+    "/home/king/project/inspect_api/Ins_ros2/Ins_ros2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/king/project/inspect_api/Ins_ros2/Ins_ros2.csproj",
+        "projectName": "Ins_ros2",
+        "projectPath": "/home/king/project/inspect_api/Ins_ros2/Ins_ros2.csproj",
+        "packagesPath": "/home/king/.nuget/packages/",
+        "outputPath": "/home/king/project/inspect_api/Ins_ros2/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/king/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Rcl.NET": {
+              "target": "Package",
+              "version": "[1.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

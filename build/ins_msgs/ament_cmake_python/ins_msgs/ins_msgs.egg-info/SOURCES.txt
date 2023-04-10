@@ -5,4 +5,5 @@ ins_msgs.egg-info/SOURCES.txt
 ins_msgs.egg-info/dependency_links.txt
 ins_msgs.egg-info/top_level.txt
 ins_msgs/msg/__init__.py
+ins_msgs/msg/_prod_spec.py
 ins_msgs/msg/_product.py

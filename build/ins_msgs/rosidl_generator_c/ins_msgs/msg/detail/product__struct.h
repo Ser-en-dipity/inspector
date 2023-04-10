@@ -21,6 +21,8 @@ extern "C"
 // Member 'name'
 // Member 'desp'
 #include "rosidl_runtime_c/string.h"
+// Member 'spec_value'
+#include "rosidl_runtime_c/primitives_sequence.h"
 
 // constants for array fields with an upper bound
 // name
@@ -35,6 +37,8 @@ typedef struct ins_msgs__msg__Product
   int64_t client_id;
   rosidl_runtime_c__String name;
   rosidl_runtime_c__String desp;
+  int64_t timestamp;
+  rosidl_runtime_c__double__Sequence spec_value;
 } ins_msgs__msg__Product;
 
 // Struct for a sequence of ins_msgs__msg__Product.

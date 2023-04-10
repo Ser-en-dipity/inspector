@@ -15,6 +15,8 @@
 // Member `name`
 // Member `desp`
 #include "rosidl_runtime_c/string_functions.h"
+// Member `spec_value`
+#include "rosidl_runtime_c/primitives_sequence_functions.h"
 
 bool
 ins_msgs__msg__Product__init(ins_msgs__msg__Product * msg)
@@ -33,6 +35,12 @@ ins_msgs__msg__Product__init(ins_msgs__msg__Product * msg)
     ins_msgs__msg__Product__fini(msg);
     return false;
   }
+  // timestamp
+  // spec_value
+  if (!rosidl_runtime_c__double__Sequence__init(&msg->spec_value, 0)) {
+    ins_msgs__msg__Product__fini(msg);
+    return false;
+  }
   return true;
 }
 
@@ -47,6 +55,9 @@ ins_msgs__msg__Product__fini(ins_msgs__msg__Product * msg)
   rosidl_runtime_c__String__fini(&msg->name);
   // desp
   rosidl_runtime_c__String__fini(&msg->desp);
+  // timestamp
+  // spec_value
+  rosidl_runtime_c__double__Sequence__fini(&msg->spec_value);
 }
 
 bool
@@ -68,6 +79,16 @@ ins_msgs__msg__Product__are_equal(const ins_msgs__msg__Product * lhs, const ins_
   // desp
   if (!rosidl_runtime_c__String__are_equal(
       &(lhs->desp), &(rhs->desp)))
+  {
+    return false;
+  }
+  // timestamp
+  if (lhs->timestamp != rhs->timestamp) {
+    return false;
+  }
+  // spec_value
+  if (!rosidl_runtime_c__double__Sequence__are_equal(
+      &(lhs->spec_value), &(rhs->spec_value)))
   {
     return false;
   }
@@ -93,6 +114,14 @@ ins_msgs__msg__Product__copy(
   // desp
   if (!rosidl_runtime_c__String__copy(
       &(input->desp), &(output->desp)))
+  {
+    return false;
+  }
+  // timestamp
+  output->timestamp = input->timestamp;
+  // spec_value
+  if (!rosidl_runtime_c__double__Sequence__copy(
+      &(input->spec_value), &(output->spec_value)))
   {
     return false;
   }

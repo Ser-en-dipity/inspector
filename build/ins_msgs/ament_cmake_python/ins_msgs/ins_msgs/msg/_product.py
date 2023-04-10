@@ -5,7 +5,12 @@
 
 # Import statements for member types
 
+# Member 'spec_value'
+import array  # noqa: E402, I100
+
 import builtins  # noqa: E402, I100
+
+import math  # noqa: E402, I100
 
 import rosidl_parser.definition  # noqa: E402, I100
 
@@ -58,18 +63,24 @@ class Product(metaclass=Metaclass_Product):
         '_client_id',
         '_name',
         '_desp',
+        '_timestamp',
+        '_spec_value',
     ]
 
     _fields_and_field_types = {
         'client_id': 'int64',
         'name': 'string<10>',
         'desp': 'string',
+        'timestamp': 'int64',
+        'spec_value': 'sequence<double>',
     }
 
     SLOT_TYPES = (
         rosidl_parser.definition.BasicType('int64'),  # noqa: E501
         rosidl_parser.definition.BoundedString(10),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
+        rosidl_parser.definition.BasicType('int64'),  # noqa: E501
+        rosidl_parser.definition.UnboundedSequence(rosidl_parser.definition.BasicType('double')),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -79,6 +90,8 @@ class Product(metaclass=Metaclass_Product):
         self.client_id = kwargs.get('client_id', int())
         self.name = kwargs.get('name', str())
         self.desp = kwargs.get('desp', str())
+        self.timestamp = kwargs.get('timestamp', int())
+        self.spec_value = array.array('d', kwargs.get('spec_value', []))
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -114,6 +127,10 @@ class Product(metaclass=Metaclass_Product):
         if self.name != other.name:
             return False
         if self.desp != other.desp:
+            return False
+        if self.timestamp != other.timestamp:
+            return False
+        if self.spec_value != other.spec_value:
             return False
         return True
 
@@ -165,3 +182,46 @@ class Product(metaclass=Metaclass_Product):
                 isinstance(value, str), \
                 "The 'desp' field must be of type 'str'"
         self._desp = value
+
+    @builtins.property
+    def timestamp(self):
+        """Message field 'timestamp'."""
+        return self._timestamp
+
+    @timestamp.setter
+    def timestamp(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, int), \
+                "The 'timestamp' field must be of type 'int'"
+            assert value >= -9223372036854775808 and value < 9223372036854775808, \
+                "The 'timestamp' field must be an integer in [-9223372036854775808, 9223372036854775807]"
+        self._timestamp = value
+
+    @builtins.property
+    def spec_value(self):
+        """Message field 'spec_value'."""
+        return self._spec_value
+
+    @spec_value.setter
+    def spec_value(self, value):
+        if isinstance(value, array.array):
+            assert value.typecode == 'd', \
+                "The 'spec_value' array.array() must have the type code of 'd'"
+            self._spec_value = value
+            return
+        if __debug__:
+            from collections.abc import Sequence
+            from collections.abc import Set
+            from collections import UserList
+            from collections import UserString
+            assert \
+                ((isinstance(value, Sequence) or
+                  isinstance(value, Set) or
+                  isinstance(value, UserList)) and
+                 not isinstance(value, str) and
+                 not isinstance(value, UserString) and
+                 all(isinstance(v, float) for v in value) and
+                 all(not (val < -1.7976931348623157e+308 or val > 1.7976931348623157e+308) or math.isinf(val) for val in value)), \
+                "The 'spec_value' field must be a set or sequence and each value of type 'float' and each double in [-179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000, 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000]"
+        self._spec_value = array.array('d', value)

@@ -13,7 +13,6 @@ find_package(std_msgs REQUIRED)
 
 set(msg_files
   msg/Product.msg
-  
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}

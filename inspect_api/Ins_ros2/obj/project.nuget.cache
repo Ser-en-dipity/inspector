@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "PfR/YHVpWcsZ7KqBl0c5c8ODV/FZD/q/0LLxChwkp3VBD43p53n/S577Epm3yibCssgDkbdWEIqsRvAVlqy2Cw==",
+  "success": true,
+  "projectFilePath": "/home/king/project/inspect_api/Ins_ros2/Ins_ros2.csproj",
+  "expectedPackageFiles": [
+    "/home/king/.nuget/packages/microsoft.toolkit.highperformance/7.1.2/microsoft.toolkit.highperformance.7.1.2.nupkg.sha512",
+    "/home/king/.nuget/packages/rcl.net/1.1.2/rcl.net.1.1.2.nupkg.sha512",
+    "/home/king/.nuget/packages/rosidl.runtime/1.1.2/rosidl.runtime.1.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

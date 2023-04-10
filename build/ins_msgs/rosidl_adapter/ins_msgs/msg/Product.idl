@@ -11,6 +11,10 @@ module ins_msgs {
       string<10> name;
 
       string desp;
+
+      int64 timestamp;
+
+      sequence<double> spec_value;
     };
   };
 };

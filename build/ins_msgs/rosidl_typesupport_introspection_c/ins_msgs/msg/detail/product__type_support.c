@@ -16,6 +16,8 @@
 // Member `name`
 // Member `desp`
 #include "rosidl_runtime_c/string_functions.h"
+// Member `spec_value`
+#include "rosidl_runtime_c/primitives_sequence_functions.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -36,7 +38,62 @@ void ins_msgs__msg__Product__rosidl_typesupport_introspection_c__Product_fini_fu
   ins_msgs__msg__Product__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember ins_msgs__msg__Product__rosidl_typesupport_introspection_c__Product_message_member_array[3] = {
+size_t ins_msgs__msg__Product__rosidl_typesupport_introspection_c__size_function__Product__spec_value(
+  const void * untyped_member)
+{
+  const rosidl_runtime_c__double__Sequence * member =
+    (const rosidl_runtime_c__double__Sequence *)(untyped_member);
+  return member->size;
+}
+
+const void * ins_msgs__msg__Product__rosidl_typesupport_introspection_c__get_const_function__Product__spec_value(
+  const void * untyped_member, size_t index)
+{
+  const rosidl_runtime_c__double__Sequence * member =
+    (const rosidl_runtime_c__double__Sequence *)(untyped_member);
+  return &member->data[index];
+}
+
+void * ins_msgs__msg__Product__rosidl_typesupport_introspection_c__get_function__Product__spec_value(
+  void * untyped_member, size_t index)
+{
+  rosidl_runtime_c__double__Sequence * member =
+    (rosidl_runtime_c__double__Sequence *)(untyped_member);
+  return &member->data[index];
+}
+
+void ins_msgs__msg__Product__rosidl_typesupport_introspection_c__fetch_function__Product__spec_value(
+  const void * untyped_member, size_t index, void * untyped_value)
+{
+  const double * item =
+    ((const double *)
+    ins_msgs__msg__Product__rosidl_typesupport_introspection_c__get_const_function__Product__spec_value(untyped_member, index));
+  double * value =
+    (double *)(untyped_value);
+  *value = *item;
+}
+
+void ins_msgs__msg__Product__rosidl_typesupport_introspection_c__assign_function__Product__spec_value(
+  void * untyped_member, size_t index, const void * untyped_value)
+{
+  double * item =
+    ((double *)
+    ins_msgs__msg__Product__rosidl_typesupport_introspection_c__get_function__Product__spec_value(untyped_member, index));
+  const double * value =
+    (const double *)(untyped_value);
+  *item = *value;
+}
+
+bool ins_msgs__msg__Product__rosidl_typesupport_introspection_c__resize_function__Product__spec_value(
+  void * untyped_member, size_t size)
+{
+  rosidl_runtime_c__double__Sequence * member =
+    (rosidl_runtime_c__double__Sequence *)(untyped_member);
+  rosidl_runtime_c__double__Sequence__fini(member);
+  return rosidl_runtime_c__double__Sequence__init(member, size);
+}
+
+static rosidl_typesupport_introspection_c__MessageMember ins_msgs__msg__Product__rosidl_typesupport_introspection_c__Product_message_member_array[5] = {
   {
     "client_id",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_INT64,  // type
@@ -87,13 +144,47 @@ static rosidl_typesupport_introspection_c__MessageMember ins_msgs__msg__Product_
     NULL,  // fetch(index, &value) function pointer
     NULL,  // assign(index, value) function pointer
     NULL  // resize(index) function pointer
+  },
+  {
+    "timestamp",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_INT64,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ins_msgs__msg__Product, timestamp),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL,  // fetch(index, &value) function pointer
+    NULL,  // assign(index, value) function pointer
+    NULL  // resize(index) function pointer
+  },
+  {
+    "spec_value",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message
+    true,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ins_msgs__msg__Product, spec_value),  // bytes offset in struct
+    NULL,  // default value
+    ins_msgs__msg__Product__rosidl_typesupport_introspection_c__size_function__Product__spec_value,  // size() function pointer
+    ins_msgs__msg__Product__rosidl_typesupport_introspection_c__get_const_function__Product__spec_value,  // get_const(index) function pointer
+    ins_msgs__msg__Product__rosidl_typesupport_introspection_c__get_function__Product__spec_value,  // get(index) function pointer
+    ins_msgs__msg__Product__rosidl_typesupport_introspection_c__fetch_function__Product__spec_value,  // fetch(index, &value) function pointer
+    ins_msgs__msg__Product__rosidl_typesupport_introspection_c__assign_function__Product__spec_value,  // assign(index, value) function pointer
+    ins_msgs__msg__Product__rosidl_typesupport_introspection_c__resize_function__Product__spec_value  // resize(index) function pointer
   }
 };
 
 static const rosidl_typesupport_introspection_c__MessageMembers ins_msgs__msg__Product__rosidl_typesupport_introspection_c__Product_message_members = {
   "ins_msgs__msg",  // message namespace
   "Product",  // message name
-  3,  // number of fields
+  5,  // number of fields
   sizeof(ins_msgs__msg__Product),
   ins_msgs__msg__Product__rosidl_typesupport_introspection_c__Product_message_member_array,  // message members
   ins_msgs__msg__Product__rosidl_typesupport_introspection_c__Product_init_function,  // function to initialize message memory (memory has to be allocated)
